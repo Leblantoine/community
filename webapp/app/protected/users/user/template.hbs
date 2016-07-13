@@ -86,29 +86,29 @@
             {{/each}}
           </td>
         </tr>
-		<tr>
-          <th scope="row">Expirating date</th>
-          <td>
-				{{#if session.user.isAdmin }}
-				{{#edit-text
-					type="text"
-					confirmation=false
-					textInput=model.expirationDays
-					textInputPlaceholder="number of adding days"
-					onClose="changeExpirationDays" }}
-						{{moment-calendar model.expirationDays}}
-						{{/edit-text}}
-				{{else}}
-						 {{moment-calendar model.expirationDays}}
-				{{/if}}
-          </td>
-		</tr>
         <tr>
           <th scope="row">Creation date</th>
           <td>
             {{moment-calendar model.signupDate}}
           </td>
         </tr>
+        <tr>
+          <th scope="row">Expiration date</th>
+          <td>
+			    	{{#if session.user.isAdmin }}
+				     {{#edit-text
+				    	 type="text"
+			         confirmation=false
+               textInput=model.expirationDays
+		           textInputPlaceholder="Days left before expiration"
+			         onClose="changeExpirationDays" }}
+						   {{moment-calendar model.expirationDays}}
+						 {{/edit-text}}
+				    {{else}}
+						 {{moment-calendar model.expirationDays}}
+				    {{/if}}
+          </td>
+		  </tr>
 				{{#if session.user.isAdmin }}
 					<tr>
 						<th scope="row">UUID</th>
